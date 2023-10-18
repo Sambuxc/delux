@@ -19,6 +19,7 @@ export default defineConfig({
         additionalData: `
           @import "./src/assets/sass/variables";
           @import "./src/assets/sass/mixins";
+          @import "./src/assets/sass/utils";
         `,
       },
     },

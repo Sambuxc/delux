@@ -1,0 +1,58 @@
+.hidden {
+  display: none;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.flex {
+  @include flex-base;
+}
+
+.order-1 {
+  order: 1;
+}
+
+.order-2 {
+  order: 2;
+}
+
+@media (min-width: 768px) {
+  .md\:mr-15 {
+    margin-right: 15px;
+  }
+
+  .md\:hidden {
+    display: none;
+  }
+  .md\:flex {
+    display: flex;
+  }
+
+  .md\:ml-5 {
+    margin-left: 5px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:hidden {
+    display: none;
+  }
+
+  .lg\:flex {
+    display: flex;
+  }
+
+  .lg\:order-1 {
+    order: 1;
+  }
+
+  .lg\:order-2 {
+    order: 2;
+  }
+
+  .lg\:w-full {
+    width: 100%;
+  }
+}

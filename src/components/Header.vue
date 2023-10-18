@@ -58,34 +58,14 @@ import { RouterLink, RouterView } from "vue-router";
 </template>
 
 <style lang="scss">
-.order-1 {
-  order: 1;
-}
-
-.order-2 {
-  order: 2;
-}
 
 header {
-  @include flex-center;
+  @extend .flex;
 
   justify-content: space-between;
   height: 50px;
   border-bottom: 1px solid $border-color;
   padding: 10px 13px;
-}
-
-.hidden {
-  display: none;
-}
-
-.items-center {
-  align-items: center;
-}
-
-.flex {
-  display: flex;
-  align-items: center;
 }
 
 nav {
@@ -137,21 +117,6 @@ nav a:first-of-type {
 }
 
 @media (min-width: 768px) {
-  .md\:mr-15 {
-    margin-right: 15px;
-  }
-
-  .md\:hidden {
-    display: none;
-  }
-  .md\:flex {
-    display: flex;
-  }
-
-  .md\:ml-5 {
-    margin-left: 5px;
-  }
-
   header {
     height: 80px;
   }
@@ -175,25 +140,6 @@ nav a:first-of-type {
 }
 
 @media (min-width: 1024px) {
-  .lg\:hidden {
-    display: none;
-  }
-
-  .lg\:flex {
-    display: flex;
-  }
-
-  .lg\:order-1 {
-    order: 1;
-  }
-
-  .lg\:order-2 {
-    order: 2;
-  }
-
-  .lg\:w-full {
-    width: 100%;
-  }
 
   header {
     padding: 30px 32px;
