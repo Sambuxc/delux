@@ -1,11 +1,16 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView } from "vue-router";
 </script>
 <template>
   <header>
     <div class="flex">
-      <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-      
+      <img
+        alt="Vue logo"
+        class="logo"
+        src="@/assets/logo.svg"
+        width="125"
+        height="125" />
+
       <div class="hidden md:flex items-center md:mr-15">
         <img src="@/assets/star-icon.svg" width="24" height="24" />
         <span class="md:ml-5">0</span>
@@ -16,7 +21,7 @@ import { RouterLink, RouterView } from 'vue-router'
         <span class="md:ml-5">0</span>
       </div>
     </div>
-      
+
     <div class="flex lg:w-full">
       <nav class="nav-list">
         <RouterLink to="/" class="">Home</RouterLink>
@@ -27,30 +32,40 @@ import { RouterLink, RouterView } from 'vue-router'
         <RouterLink to="/" class="">Blog</RouterLink>
         <RouterLink to="/" class="">Contact</RouterLink>
       </nav>
-      
+
       <nav>
         <RouterLink to="/" class="btn-blue md:hidden">Contact</RouterLink>
-        <a href="mailto:samwbru@gmail.com" class="btn-blue hidden md:flex order-1 lg:order-2">Email</a>
-        <RouterLink to="/" class="btn-blue hidden md:flex order-2 lg:order-1">Call</RouterLink>
+        <a
+          href="mailto:samwbru@gmail.com"
+          class="btn-blue hidden md:flex order-1 lg:order-2"
+          >Email</a
+        >
+        <RouterLink to="/" class="btn-blue hidden md:flex order-2 lg:order-1"
+          >Call</RouterLink
+        >
         <div class="flex lg:hidden">
           <a class="btn-menu">Menu</a>
-          <img class="hidden md:flex" src="@/assets/menu-icon.svg" alt="menu icon" width="24" height="24" />
+          <img
+            class="hidden md:flex"
+            src="@/assets/menu-icon.svg"
+            alt="menu icon"
+            width="24"
+            height="24" />
         </div>
       </nav>
     </div>
   </header>
+</template>
 
-  </template>
+<style lang="scss">
+.order-1 {
+  order: 1;
+}
 
-  <style lang="scss">
-  .order-1 {
-    order: 1;
-  }
+.order-2 {
+  order: 2;
+}
 
-  .order-2 {
-    order: 2;
-  }
-  
 header {
   @include flex-center;
 
@@ -109,7 +124,7 @@ nav a:first-of-type {
 .btn-blue {
   padding: 11px 15px;
   height: 30px;
-  background: #82F7FF;
+  background: #82f7ff;
   border-radius: 16px;
 }
 
@@ -125,7 +140,7 @@ nav a:first-of-type {
   .md\:mr-15 {
     margin-right: 15px;
   }
-  
+
   .md\:hidden {
     display: none;
   }
@@ -167,7 +182,7 @@ nav a:first-of-type {
   .lg\:flex {
     display: flex;
   }
-  
+
   .lg\:order-1 {
     order: 1;
   }
@@ -179,7 +194,7 @@ nav a:first-of-type {
   .lg\:w-full {
     width: 100%;
   }
-  
+
   header {
     padding: 30px 32px;
     height: 100px;
