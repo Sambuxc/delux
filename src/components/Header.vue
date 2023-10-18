@@ -1,5 +1,5 @@
 <script setup>
-
+import { RouterLink, RouterView } from 'vue-router'
 </script>
 <template>
   <header>
@@ -42,7 +42,7 @@
 
   </template>
 
-  <style scoped>
+  <style lang="scss">
   .order-1 {
     order: 1;
   }
@@ -52,11 +52,11 @@
   }
   
 header {
-  display: flex;
-  align-items: center;
+  @include flex-center;
+
   justify-content: space-between;
   height: 50px;
-  border-bottom: 1px solid #D1D6E0;
+  border-bottom: 1px solid $border-color;
   padding: 10px 13px;
 }
 

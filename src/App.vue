@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import './assets/main.scss'
 import Header from './components/Header.vue';
 </script>
 
@@ -11,4 +11,3 @@ import Header from './components/Header.vue';
     </main>
     
 </template>
-
