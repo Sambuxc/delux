@@ -36,6 +36,10 @@
 }
 
 @media (min-width: 1024px) {
+  .lg\:block {
+    display: block;
+  }
+
   .lg\:hidden {
     display: none;
   }
@@ -54,5 +58,9 @@
 
   .lg\:w-full {
     width: 100%;
+  }
+
+  .lg\:pr-30 {
+    margin-right: 30px;
   }
 }

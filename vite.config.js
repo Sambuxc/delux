@@ -20,6 +20,7 @@ export default defineConfig({
           @import "./src/assets/sass/variables";
           @import "./src/assets/sass/mixins";
           @import "./src/assets/sass/utils";
+          @import "./src/assets/sass/buttons";
         `,
       },
     },
