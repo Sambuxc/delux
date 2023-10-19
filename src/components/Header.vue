@@ -33,18 +33,18 @@ header {
   @extend .flex;
 
   justify-content: space-between;
-  height: 50px;
+  height: $header-height;
   width: 100%;
   border-bottom: 1px solid $border-color;
   padding: 10px 13px;
 
   @media (min-width: 768px) {
-    height: 80px;
+    height: $header-height-tablet;
   }
 
   @media (min-width: 1024px) {
     padding: 30px 32px;
-    height: 100px;
+    height: $header-height-desktop;
     display: flex;
     align-items: center;
   }
