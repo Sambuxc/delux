@@ -11,6 +11,20 @@ app.mount("#app");
 /**
  * Search Filter Menu
  */
+const searchFilterMenu = document.querySelector(".search-filter-menu");
+
+document
+  .querySelectorAll(
+    ".search-filter-menu__header--cancel, .filters-menu__control--button"
+  ).forEach((elem) => {
+    elem.addEventListener("click", function () {
+      if (!searchFilterMenu.classList.contains("open")) {
+        searchFilterMenu.classList.add("open");
+      } else {
+        searchFilterMenu.classList.remove("open");
+      }
+    })
+  })
 
 document.querySelectorAll(".search-filter-item__header").forEach((headerFilterItem) => {
   headerFilterItem.addEventListener("click", function () {

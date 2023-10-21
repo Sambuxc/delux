@@ -8,7 +8,7 @@ import SearchFilterItem from "./SearchFilterItem.vue";
     <div class="search-filter-menu__header">
       <h2>Search filters</h2>
       <button class="btn-red">Reset</button>
-      <button class="btn-base">Cancel</button>
+      <button class="search-filter-menu__header--cancel btn-base">Cancel</button>
     </div>
 
     <div class="search-filter-menu__body">
@@ -16,6 +16,17 @@ import SearchFilterItem from "./SearchFilterItem.vue";
 
       <SearchFilterItem title="Make"/>
       <SearchFilterItem title="Model" disabled/>
+
+      <h2>Finance</h2>
+      <SearchFilterItem title="Deposit"/>
+      <SearchFilterItem title="Mileage"/>
+      <SearchFilterItem title="Period"/>
+      <SearchFilterItem title="Budget"/>
+
+      <h2>Budget</h2>
+      <SearchFilterItem title="Min. Price" disabled/>
+      <SearchFilterItem title="Max. Price" disabled/>
+
     </div>
 
     <div class="search-filter-menu__control">
@@ -33,10 +44,11 @@ import SearchFilterItem from "./SearchFilterItem.vue";
   position: absolute;
   top: $header-height;
   width: 100%;
-  height: calc(100% - $header-height);
+  height: 0;
   background-color: white;
   display: flex;
   flex-direction: column;
+  transition: .6s height ease;
 
   &__header {
     @include flex-base;
@@ -63,7 +75,7 @@ import SearchFilterItem from "./SearchFilterItem.vue";
     h2 {
       margin: 20px 0;
 
-      color: $grey-dark;
+      color: $text-disabled;
       font-variation-settings: "wght" 900;
       font-size: 12px;
       line-height: 18px; /* 150% */
@@ -75,7 +87,7 @@ import SearchFilterItem from "./SearchFilterItem.vue";
   &__control {
     position: fixed;
     bottom: 0;
-    display: inline-flex;
+    display: none;
     height: 70px;
     padding: 10px 98px 10px 97px;
     justify-content: center;
@@ -92,8 +104,8 @@ import SearchFilterItem from "./SearchFilterItem.vue";
       width: fit-content;
 
       border-radius: 16px;
-      border: 1px solid var(--framework-borders, #D1D6E0);
-      background: var(--framework-light, #F6F7FB);
+      border: 1px solid $framework-borders;
+      background: $framework-light;
 
       p {
         height: fit-content;
@@ -107,6 +119,13 @@ import SearchFilterItem from "./SearchFilterItem.vue";
         text-wrap: nowrap;
       }
     }
+  }
+}
+.search-filter-menu.open {
+  height: calc(100% - $header-height);
+
+  .search-filter-menu__control {
+    display: inline-flex;
   }
 }
 </style>
