@@ -35,4 +35,8 @@ button {
   background-color: rgba($red, 0.15);
   fill-opacity: 0.6;
   color: $red;
+
+  &:hover {
+    background-color: rgba($red, 0.3);
+  }
 }
