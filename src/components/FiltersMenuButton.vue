@@ -24,6 +24,10 @@ import IconFilter from "./icons/IconFilter.vue";
   flex-shrink: 0;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
 
+  @media (min-width: 1024px) {
+    display: none;
+  }
+
   &--button {
     @include flex-base;
     justify-content: center;

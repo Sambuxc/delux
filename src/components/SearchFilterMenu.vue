@@ -50,6 +50,13 @@ import SearchFilterItem from "./SearchFilterItem.vue";
   flex-direction: column;
   transition: .6s height ease;
 
+  @media (min-width: 768px) {
+    top: $header-height-tablet;
+  }
+  @media (min-width: 1024px) {
+    display: none;
+  }
+
   &__header {
     @include flex-base;
     gap: 15px;
@@ -89,6 +96,7 @@ import SearchFilterItem from "./SearchFilterItem.vue";
     bottom: 0;
     display: none;
     height: 70px;
+    width: 100%;
     padding: 10px 98px 10px 97px;
     justify-content: center;
     align-items: center;
