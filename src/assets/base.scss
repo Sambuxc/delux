@@ -73,3 +73,11 @@ h6 {
   font-family: "overpass-variable", sans-serif;
   font-style: normal;
 }
+
+p {
+  font-family: inherit;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  color: $text-black;
+}

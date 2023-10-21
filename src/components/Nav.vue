@@ -34,6 +34,7 @@ import { RouterLink, RouterView } from "vue-router";
 
 <style lang="scss">
 .logo {
+  height: fit-content;
   @media (min-width: 768px) {
     margin-right: 32px;
   }

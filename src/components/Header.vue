@@ -1,5 +1,6 @@
 <script setup>
 import Nav from "./Nav.vue";
+import ControlsMenu from "./ControlsMenu.vue";
 </script>
 
 <template>
@@ -25,6 +26,8 @@ import Nav from "./Nav.vue";
 
     <Nav />
   </header>
+  
+  <ControlsMenu />
 </template>
 
 <style lang="scss">
