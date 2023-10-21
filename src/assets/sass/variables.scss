@@ -1,15 +1,19 @@
 // colors
-$bg-body: white;
-$grey-light: #f6f7fb;
+$bg-body: #ffffff;
+$framework-light: #f6f7fb;
 $grey: #d1d6e0;
 $grey-dark: #a2a9af;
 $red: #f87b7b;
 $brand-primary: #7572ff;
 
+// text colors
+$text-black: #000000;
+$text-grey: #55595d;
+
+// borders colors
+$framework-borders: $grey;
+
 // heights
 $header-height: 50px;
 $header-height-tablet: 80px;
 $header-height-desktop: 100px;
-
-// borders
-$framework-borders: $grey;

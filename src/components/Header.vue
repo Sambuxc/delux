@@ -23,7 +23,7 @@ import Nav from "./Nav.vue";
       </div>
     </div>
 
-    <Nav></Nav>
+    <Nav />
   </header>
 </template>
 
@@ -35,7 +35,7 @@ header {
   justify-content: space-between;
   height: $header-height;
   width: 100%;
-  border-bottom: 1px solid $border-color;
+  border-bottom: 1px solid $framework-borders;
   padding: 10px 13px;
 
   @media (min-width: 768px) {
