@@ -1,7 +1,6 @@
 <script setup>
 import IconFilter from "./icons/IconFilter.vue";
-import ButtonControlSwitch from "./ButtonControlSwitch.vue";
-import SearchFilterMenu__item from "./SearchFilterMenu__item.vue";
+import SearchFilterItem from "./SearchFilterItem.vue";
 </script>
 
 <template>
@@ -15,46 +14,8 @@ import SearchFilterMenu__item from "./SearchFilterMenu__item.vue";
     <div class="search-filter-menu__body">
       <h2>Brand</h2>
 
-      <div class="search-filter-item__container">
-        <div class="search-filter-item__header">
-          <h3>Make</h3>
-
-          <ButtonControlSwitch />
-        </div>
-
-        <div class="search-filters">
-          <SearchFilterMenu__item filterItemName="Abarth" />
-          <SearchFilterMenu__item filterItemName="Alfa Romeo" />
-          <SearchFilterMenu__item filterItemName="Audi" />
-          <SearchFilterMenu__item filterItemName="BMW" />
-          <SearchFilterMenu__item filterItemName="Citroën" />
-          <SearchFilterMenu__item filterItemName="BS" />
-          <SearchFilterMenu__item filterItemName="Abarth" />
-          <SearchFilterMenu__item filterItemName="Alfa Romeo" />
-          <SearchFilterMenu__item filterItemName="Audi" />
-          <SearchFilterMenu__item filterItemName="BMW" />
-          <SearchFilterMenu__item filterItemName="Citroën" />
-          <SearchFilterMenu__item filterItemName="BS" />
-          <SearchFilterMenu__item filterItemName="Abarth" />
-          <SearchFilterMenu__item filterItemName="Alfa Romeo" />
-          <SearchFilterMenu__item filterItemName="Audi" />
-          <SearchFilterMenu__item filterItemName="BMW" />
-          <SearchFilterMenu__item filterItemName="Citroën" />
-          <SearchFilterMenu__item filterItemName="BS" />
-          <SearchFilterMenu__item filterItemName="Abarth" />
-          <SearchFilterMenu__item filterItemName="Alfa Romeo" />
-          <SearchFilterMenu__item filterItemName="Audi" />
-          <SearchFilterMenu__item filterItemName="BMW" />
-          <SearchFilterMenu__item filterItemName="Citroën" />
-          <SearchFilterMenu__item filterItemName="BS" />
-          <SearchFilterMenu__item filterItemName="Abarth" />
-          <SearchFilterMenu__item filterItemName="Alfa Romeo" />
-          <SearchFilterMenu__item filterItemName="Audi" />
-          <SearchFilterMenu__item filterItemName="BMW" />
-          <SearchFilterMenu__item filterItemName="Citroën" />
-          <SearchFilterMenu__item filterItemName="BS" />
-        </div>
-      </div>
+      <SearchFilterItem title="Make"/>
+      <SearchFilterItem title="Model" disabled/>
     </div>
 
     <div class="search-filter-menu__control">
@@ -108,44 +69,6 @@ import SearchFilterMenu__item from "./SearchFilterMenu__item.vue";
       line-height: 18px; /* 150% */
       letter-spacing: 1.8px;
       text-transform: uppercase;
-    }
-
-    .search-filter-item__container {
-      display: flex;
-      flex-direction: column;
-      padding: 13px;
-      height: fit-content;
-
-      border-radius: 16px;
-
-      .search-filter-item__header {
-        @include flex-base;
-        justify-content: space-between;
-        padding: 13px 0;
-      }
-
-      .search-filter-item__header.open + .search-filters {
-        display: inline-flex;
-      }
-
-      h3 {
-        font-family: sans-serif;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 24px; /* 150% */
-        color: black;
-      }
-    }
-    .search-filter-item__container.active {
-      border: 1px solid $framework-borders;
-    }
-
-    .search-filters {
-      display: none;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 13px 0;
     }
   }
 
