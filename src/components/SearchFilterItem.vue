@@ -89,7 +89,9 @@ defineProps(["title"]);
 .search-filter-item[disabled] {
   opacity: .4;
 }
+/*
+for when filters have been selected
 .search-filter-item.active {
   border: 1px solid $framework-borders;
-}
+}*/
 </style>

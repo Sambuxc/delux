@@ -6,7 +6,7 @@ defineProps(["filterItemName"]);
 
 <template>
   <div class="search-filters__item">
-    <p class="search-filters__item-title">{{ filterItemName }}</p>
+    <p class="search-filters__item--title">{{ filterItemName }}</p>
     <ButtonControlSwitch />
   </div>
 </template>
@@ -21,7 +21,7 @@ defineProps(["filterItemName"]);
   background-color: $framework-light;
   border-radius: 12px;
 
-  &-title {
+  &--title {
     text-wrap: nowrap;
     color: $text-grey;
     font-family: sans-serif;
@@ -30,10 +30,14 @@ defineProps(["filterItemName"]);
     font-weight: 400;
     line-height: 21px; /* 150% */
   }
+}
 
-  .control-switch.active {
-    background-color: $red;
-    border-color: $red;
+.search-filters__item.selected .control-switch {
+  background-color: $red;
+  border-color: $red;
+
+  svg path {
+    stroke: white;
   }
 }
 </style>

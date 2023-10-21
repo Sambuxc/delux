@@ -12,25 +12,30 @@ app.mount("#app");
  * Search Filter Menu
  */
 
-document.querySelectorAll(".control-switch").forEach((elem) => {
-  elem.addEventListener("click", function () {
-    const elem__header = elem.parentElement;
+document.querySelectorAll(".search-filter-item__header").forEach((headerFilterItem) => {
+  headerFilterItem.addEventListener("click", function () {
+    if (!headerFilterItem.closest("[disabled]")) {
+      // if headerFilterItement is not disabled
+      const searchFilterIcon = headerFilterItem.querySelector('.control-switch');
 
-    if (!elem__header.closest("[disabled]")) {
-      // if element is not disabled
-
-      // toggle state for the icon button and it's header element
-      if (!elem.classList.contains("active")) {
-        elem.classList.add("active");
-
-        if (elem__header.classList.contains("search-filter-item__header")) {
-          // if the parent element is the search-filter header set open state
-          elem__header.classList.add("open");
-        }
+      // toggle state for the icon button and it's header headerFilterItement
+      if (!headerFilterItem.classList.contains("open")) {
+        headerFilterItem.classList.add("open");
+        searchFilterIcon.classList.add("active");
       } else {
-        elem.classList.remove("active");
-        elem__header.classList.remove("open"); // no need to if check, it won't remove if it doesn't exist anyway
+        headerFilterItem.classList.remove("open");
+        searchFilterIcon.classList.remove("active"); // no need to if check, it won't remove if it doesn't exist anyway
       }
+    }
+  })
+})
+
+document.querySelectorAll(".search-filters__item").forEach((filterItem) => {
+  filterItem.addEventListener("click", function () {
+    if (!filterItem.classList.contains("selected")) {
+      filterItem.classList.add("selected");
+    } else {
+      filterItem.classList.remove("selected");
     }
   });
 });
