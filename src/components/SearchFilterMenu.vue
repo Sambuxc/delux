@@ -7,7 +7,7 @@ import SearchFilterItem from "./SearchFilterItem.vue";
   <div class="search-filter-menu">
     <div class="search-filter-menu__header">
       <h2>Search filters</h2>
-      <button class="btn-red">Reset</button>
+      <button class="search-filter-menu__header--reset btn-red">Reset</button>
       <button class="search-filter-menu__header--cancel btn-base">Cancel</button>
     </div>
 

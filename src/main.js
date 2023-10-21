@@ -26,6 +26,12 @@ document
     })
   })
 
+  document.querySelector(".search-filter-menu__header--reset").addEventListener("click", function () {
+    searchFilterMenu.querySelectorAll('.selected, .active, .open').forEach((elem) => {
+      elem.classList.remove('selected', 'active', 'open')
+    })
+  })
+
 document.querySelectorAll(".search-filter-item__header").forEach((headerFilterItem) => {
   headerFilterItem.addEventListener("click", function () {
     if (!headerFilterItem.closest("[disabled]")) {
