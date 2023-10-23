@@ -1,12 +1,13 @@
 // colors
-$bg-body: #ffffff;
+$white: #ffffff;
 $framework-light: #f6f7fb;
+$framework-dark-1: #3f3a50;
 $grey: #d1d6e0;
 $red: #f87b7b;
 $brand-primary: #7572ff;
 
 // text colors
-$text-white: #ffffff;
+$text-white: $white;
 $text-black: #000000;
 $text-grey: #55595d;
 $text-disabled: #a2a9af;

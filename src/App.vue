@@ -3,6 +3,7 @@ import './assets/main.scss'
 import Header from './components/Header.vue';
 import SearchFilterMenu from './components/SearchFilterMenu.vue';
 import FiltersMenuButton from './components/FiltersMenuButton.vue';
+import Listings from './components/Listings.vue';
 </script>
 
 <template>
@@ -13,8 +14,14 @@ import FiltersMenuButton from './components/FiltersMenuButton.vue';
     <FiltersMenuButton />
 
     <main>
-      here is main content
+      <Listings />
     </main>
 
 
 </template>
+
+<style lang="scss">
+main {
+  position: relative;
+}
+</style>

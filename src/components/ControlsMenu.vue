@@ -28,11 +28,25 @@ import IconDown from "./icons/IconDown.vue"
 </template>
 
 <style lang="scss">
+.controls-menu::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  width: 100%;
+  height: 20px;
+  background: rgb(255,255,255);
+  background: linear-gradient(0deg, rgba(255,255,255,0) 0%, $framework-borders 100%);
+  z-index: -1;
+}
+
 .controls-menu {
   @include flex-base;
   justify-content: space-evenly;
+  position: relative;
   margin-top: 15px;
+  padding-bottom: 1px;
   width: 100%;
+  background-color: $white;
 
   &__button {
     padding: 8px 0;
@@ -57,6 +71,8 @@ import IconDown from "./icons/IconDown.vue"
   justify-content: space-between;
   padding: 23px 13px 6px 13px;
   width: 100%;
+  background-color: $white;
+  display: none;
 
   &__select {
     @include flex-base;
