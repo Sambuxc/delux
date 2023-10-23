@@ -18,6 +18,14 @@
   order: 2;
 }
 
+.strikeout {
+  text-decoration: line-through;
+}
+
+.text-red {
+  color: $red;
+}
+
 @media (min-width: 768px) {
   .md\:mr-15 {
     margin-right: 15px;

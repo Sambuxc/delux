@@ -53,7 +53,15 @@ function groupedStrings() {
           <p>
             <strong>£{{ monthly_price }}</strong> /mo (PCP)
           </p>
-          <p>£{{ total_price }}</p>
+          <p v-if="discount_price">
+            <span class="text-red">£{{ discount_price }}</span>
+            &nbsp;
+            <span class="strikeout">£{{ total_price }}</span>
+          </p>
+          <p v-else>
+            £{{ total_price }}
+          </p>
+          
         </div>
       </div>
     </div>
@@ -111,6 +119,7 @@ function groupedStrings() {
 
     > div {
       width: 50%;
+      line-height: 18px;
     }
 
     &--price p:first-child {
@@ -126,13 +135,22 @@ function groupedStrings() {
 
   &--details__spec--details {
     .line-group {
-      line-height: 18px;
+      @include flex-base;
     }
 
     p + p {
-      margin-left: 5px;
-      padding-left: 5px;
-      border-left: 1px solid $framework-borders;
+      @include flex-base;
+      gap: 4px;
+    }
+    p + p::before {
+      content: '';
+      display: block;
+      position: relative;
+      left: 0;
+      margin-left: 4px;
+      height: 10px;
+      width: 1px;
+      background-color: $framework-borders;
     }
   }
 
