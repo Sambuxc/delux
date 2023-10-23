@@ -40,7 +40,7 @@ import SearchFilterItem from "./SearchFilterItem.vue";
 
 <style lang="scss">
 .search-filter-menu {
-  overflow-y: scroll;
+  overflow: hidden;
   position: absolute;
   top: $header-height;
   width: 100%;
@@ -76,9 +76,10 @@ import SearchFilterItem from "./SearchFilterItem.vue";
 
   &__body {
     padding: 0 13px;
-
+    height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
 
     h2 {
       margin: 20px 0;
