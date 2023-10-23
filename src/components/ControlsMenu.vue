@@ -48,6 +48,10 @@ import IconDown from "./icons/IconDown.vue"
   width: 100%;
   background-color: $white;
 
+  h3 {
+    font-size: 14px;
+  }
+
   &__button {
     padding: 8px 0;
     width: 25%;
