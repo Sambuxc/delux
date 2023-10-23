@@ -27,9 +27,9 @@ function groupedStrings() {
   <div class="listings__tile">
     <div class="listings__tile--gallery">
       <img :src="imgUrl" :alt="name" />
-      <img :src="imgUrl" :alt="name" />
-      <img :src="imgUrl" :alt="name" />
-      <img :src="imgUrl" :alt="name" />
+      <img class="md:hidden" :src="imgUrl" :alt="name" />
+      <img class="md:hidden" :src="imgUrl" :alt="name" />
+      <img class="md:hidden" :src="imgUrl" :alt="name" />
     </div>
     <div class="listings__tile--details">
       <div class="listings__tile--details__heading">
@@ -50,16 +50,17 @@ function groupedStrings() {
           </div>
         </div>
         <div class="listings__tile--details__spec--price">
-          <p>
-            <strong>£{{ monthly_price }}</strong> /mo (PCP)
+          <p class="monthly-price">
+            <span><strong>£{{ monthly_price }}</strong></span>
+            <span class="unit">/mo (PCP)</span>
           </p>
-          <p v-if="discount_price">
+          <p class="total-price" v-if="discount_price">
             <span class="text-red">£{{ discount_price }}</span>
             &nbsp;
             <span class="strikeout">£{{ total_price }}</span>
           </p>
-          <p v-else>
-            £{{ total_price }}
+          <p class="total-price" v-else>
+            <span>£{{ total_price }}</span>
           </p>
           
         </div>
@@ -70,13 +71,26 @@ function groupedStrings() {
 
 <style lang="scss">
 .listings__tile {
+  position: relative;
   display: flex;
   flex-direction: column;
+
+  @media (min-width: 768px) {
+    overflow: hidden;
+    width: $tile-width-tablet;
+    border-radius: 16px;
+    background: $text-white;
+    box-shadow: 0px 6px 25px 0px rgba(0, 0, 0, 0.15);
+  }
 
   &--details {
     display: flex;
     flex-direction: column;
     padding: 20px;
+
+    @media (min-width: 768px) {
+      padding: 10px;
+    }
   }
 
   &--details__heading {
@@ -96,20 +110,30 @@ function groupedStrings() {
 
     .button__tag {
       @include flex-base;
+      justify-content: center;
       padding: 1px 10px;
       height: fit-content;
 
       font-size: 12px;
+      line-height: 20px;
       color: $text-white;
       border-radius: 8px;
       border: 1px solid rgba(255, 255, 255, 0.2);
       background: $framework-dark-1;
-      backdrop-filter: blur(5px);
+
+      @media (min-width: 768px) {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 16px;
+        height: 30px;
+      }
     }
 
     &--caption {
       color: $text-grey;
       font-size: 12px;
+      line-height: 12px;
     }
   }
 
@@ -120,10 +144,42 @@ function groupedStrings() {
     > div {
       width: 50%;
       line-height: 18px;
+
+      @media (min-width: 768px) {
+        width: 100%;
+      }
     }
 
-    &--price p:first-child {
-      font-size: 14px;
+    &--price {
+      @media (min-width: 768px) {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .monthly-price {
+        font-size: 14px;
+
+        @media (min-width: 768px) {
+          padding: 10px 0 5px 0;
+          font-size: 18px;
+        }
+
+        .unit {
+          padding-left: 4px;
+          font-size: 12px;
+        }
+      }
+
+       .total-price {
+        span:last-child::after {
+          content: 'Calculate finance';
+          padding-left: 8px;
+          position: relative;
+          display: inline-block;
+          font-size: inherit;
+          color: $brand-primary;
+        }
+       }
     }
 
     p {
@@ -134,14 +190,42 @@ function groupedStrings() {
   }
 
   &--details__spec--details {
+    @media (min-width: 768px) {
+      position: absolute;
+      top: 60%;
+      left: 10px;
+      display: flex;
+    }
+
     .line-group {
       @include flex-base;
+
+      @media (min-width: 768px) {
+        gap: 5px;
+      }
+    }
+
+    .line-group:first-child {
+      @media (min-width: 768px) {
+        margin-right: 5px;
+      }
+    }
+
+    p {
+      @media (min-width: 768px) {
+        padding: 1px 10px;
+        color: $text-white;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.20);
+        background: $framework-dark-1;
+      }
     }
 
     p + p {
       @include flex-base;
       gap: 4px;
     }
+
     p + p::before {
       content: '';
       display: block;
@@ -151,6 +235,10 @@ function groupedStrings() {
       height: 10px;
       width: 1px;
       background-color: $framework-borders;
+
+      @media (min-width: 768px) {
+        display: none;
+      }
     }
   }
 
@@ -159,12 +247,24 @@ function groupedStrings() {
     display: flex;
     gap: 5px;
     overflow-x: scroll;
-  }
 
-  &--gallery img {
-    width: 113px;
-    height: 84px;
-    border-radius: 16px;
+    @media (min-width: 768px) {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    img {
+      width: 113px;
+      height: 84px;
+      border-radius: 16px;
+
+      @media (min-width: 768px) {
+        width: 100%;
+        height: 250px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
   }
 }
 </style>
