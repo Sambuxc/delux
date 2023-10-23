@@ -23,6 +23,7 @@ import ListingTileAd from "./ListingTileAd.vue";
 
   @media (min-width: 768px) {
     margin: 0 auto;
+    padding: 0 0 50px;
     width: calc($tile-width-tablet * 2) + $listings-gap-tablet;
     justify-content: flex-start;
     flex-direction: row;

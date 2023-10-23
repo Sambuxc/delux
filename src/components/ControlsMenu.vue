@@ -1,30 +1,34 @@
 <script setup>
 import IconDown from "./icons/IconDown.vue"
+
+function toggleActive(id) {
+  let classList = document.querySelectorAll('.controls-menu__buttons li')[id].classList
+  if( classList.contains('active') ) {
+    classList.remove('active')
+  } else {
+    classList.add('active')
+  }
+}
 </script>
 <template>
-    <div class="controls-menu">
-      <div class="controls-menu__button active">
-        <h3>All</h3>
-      </div>
-      <div class="controls-menu__button">
-        <h3>Used</h3>
-      </div>
-      <div class="controls-menu__button">
-        <h3>New</h3>
-      </div>
-      <div class="controls-menu__button">
-        <h3>Offers</h3>
-      </div>
-    </div>
+  <div class="controls-menu">
+    <ul class="controls-menu__buttons">
+      <li class="active" @click="toggleActive(0)">All</li>
+      <li class="inactive">Used</li>
+      <li @click="toggleActive(2)">New</li>
+      <li class="inactive">Offers</li>
+    </ul>
 
-    <div class="sort">
-      <p class="sort__text">Showing 24 of 339 cars</p>
+    <p class="sort__text">
+      <span class="md:hidden">Showing 24 of&nbsp;</span>
+      <span>339 cars</span>
+    </p>
 
-      <div class="sort__select">
-        <p>Lowest price</p>
-        <IconDown />
-      </div>
+    <div class="sort__select">
+      <p>Lowest price</p>
+      <IconDown />
     </div>
+  </div>
 </template>
 
 <style lang="scss">
@@ -41,46 +45,111 @@ import IconDown from "./icons/IconDown.vue"
 
 .controls-menu {
   @include flex-base;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  @media (min-width: 768px) {
+    margin: 30px 0;
+    flex-wrap: nowrap;
+    padding: 0 50px;
+  }
+}
+
+ul.controls-menu__buttons {
+  @include flex-base;
   justify-content: space-evenly;
+  flex-grow: 1;
+  order: 1;
+  list-style: none;
   position: relative;
   margin-top: 15px;
+  padding-left: 0;
   padding-bottom: 1px;
   width: 100%;
   background-color: $white;
 
-  h3 {
-    font-size: 14px;
+  @media (min-width: 768px) {
+    justify-content: center;
+    gap: 5px;
+    flex-grow: 0;
+    order: 2;
+    margin: 0;
   }
 
-  &__button {
+  li {
+    font-size: 14px;
     padding: 8px 0;
     width: 25%;
     text-align: center;
     color: $text-grey;
-    
-    font-family: SF Pro Text;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
+
+    @media (min-width: 768px) {
+      @include flex-base;
+      justify-content: center;
+      padding: 8px 25px;
+      height: 30px;
+      width: fit-content;
+      border-radius: 12px;
+      border: 1px solid $text-black;
+      background-color: $text-white;
+      color: $text-black;
+    }
   }
-  &__button.active {
+  li.inactive {
+    @media (min-width: 768px) {
+      border-color: $framework-borders;
+      color: $text-grey;
+    }
+  }
+  li.active {
     border-bottom: 3px solid $brand-primary;
     color: $text-black;
 
+    @media (min-width: 768px) {
+      border: 1px solid $brand-primary;
+      background-color: $brand-primary;
+      color: $text-white;
+    }
   }
 }
 
-.sort {
+.sort__text {
   @include flex-base;
   justify-content: space-between;
-  padding: 23px 13px 6px 13px;
-  width: 100%;
+  order: 2;
+  padding: 23px 0 6px 13px;
   background-color: $white;
-  display: none;
+  white-space: nowrap;
 
-  &__select {
-    @include flex-base;
-    gap: 5px;
+  @media (min-width: 768px) {
+    order: 1;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 0;
+  }
+}
+
+.sort__select {
+  @include flex-base;
+  gap: 5px;
+  order: 3;
+  padding: 23px 13px 6px 0;
+
+  @media (min-width: 768px) {
+    justify-content: center;
+    padding: 13px 18px 13px 13px;
+    height: 50px;
+    white-space: nowrap;
+    border-radius: 16px;
+    background: $framework-light;
+
+    p {
+      padding-right: 14px;
+      color: $text-grey;
+    }
   }
 }
 </style>
