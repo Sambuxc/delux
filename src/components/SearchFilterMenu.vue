@@ -49,6 +49,7 @@ import SearchFilterItem from "./SearchFilterItem.vue";
   display: flex;
   flex-direction: column;
   transition: .6s height ease;
+  z-index: 100;
 
   @media (min-width: 768px) {
     top: $header-height-tablet;

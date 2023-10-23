@@ -23,6 +23,7 @@ import IconFilter from "./icons/IconFilter.vue";
   align-items: center;
   flex-shrink: 0;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+  z-index: 100;
 
   @media (min-width: 1024px) {
     display: none;
@@ -39,7 +40,10 @@ import IconFilter from "./icons/IconFilter.vue";
     border-radius: 16px;
     border: $framework-borders;
     background: $brand-primary;
-    color: $text-white;
+    
+    p {
+      color: $text-white;
+    }
 
     svg path {
       stroke: $text-white;
