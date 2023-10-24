@@ -15,6 +15,7 @@ import Listings from './components/Listings.vue';
 
     <main>
       <Listings />
+      <a href="#">Back to top</a>
     </main>
 
 
@@ -22,6 +23,24 @@ import Listings from './components/Listings.vue';
 
 <style lang="scss">
 main {
-  position: relative;
+  @include flex-base;
+  flex-direction: column;
+  padding-bottom: 70px;
+
+  a {
+    text-align: center;
+    color: $text-grey;
+    font-size: 16px;
+
+    &::after {
+      content: '';
+      position: relative;
+      top: -4px;
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: $text-grey;
+    }
+  }
 }
 </style>
