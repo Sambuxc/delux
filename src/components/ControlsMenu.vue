@@ -32,17 +32,6 @@ function toggleActive(id) {
 </template>
 
 <style lang="scss">
-.controls-menu::after {
-  content: '';
-  position: absolute;
-  bottom: -20px;
-  width: 100%;
-  height: 20px;
-  background: rgb(255,255,255);
-  background: linear-gradient(0deg, rgba(255,255,255,0) 0%, $framework-borders 100%);
-  z-index: -1;
-}
-
 .controls-menu {
   @include flex-base;
   justify-content: space-between;
@@ -52,6 +41,22 @@ function toggleActive(id) {
     margin: 30px 0;
     flex-wrap: nowrap;
     padding: 0 50px;
+  }
+}
+
+ul.controls-menu__buttons::before {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: rgb(255,255,255);
+  background: linear-gradient(0deg, rgba(255,255,255,0) 0%, $framework-borders 100%);
+  z-index: -1;
+
+  @media (min-width: 768px) {
+    display: none;
   }
 }
 
@@ -118,30 +123,35 @@ ul.controls-menu__buttons {
 
 .sort__text {
   @include flex-base;
-  justify-content: space-between;
   order: 2;
   padding: 23px 0 6px 13px;
+  width: 50%;
   background-color: $white;
   white-space: nowrap;
 
   @media (min-width: 768px) {
+    padding: 0;
+    width: fit-content;
     order: 1;
     font-size: 18px;
     font-weight: 700;
-    padding: 0;
   }
 }
 
 .sort__select {
   @include flex-base;
+  justify-content: flex-end;
   gap: 5px;
   order: 3;
   padding: 23px 13px 6px 0;
+  width: 50%;
+  background-color: $white;
 
   @media (min-width: 768px) {
     justify-content: center;
     padding: 13px 18px 13px 13px;
     height: 50px;
+    width: fit-content;
     white-space: nowrap;
     border-radius: 16px;
     background: $framework-light;
