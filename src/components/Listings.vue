@@ -3,6 +3,7 @@ import ListingTile from "./ListingTile.vue";
 import ListingTileAd from "./ListingTileAd.vue";
 import Pagination from "./Pagination.vue";
 import SortSelect from "./SortSelect.vue";
+import IconDown from "./icons/IconDown.vue";
 </script>
 
 <template>
@@ -17,9 +18,28 @@ import SortSelect from "./SortSelect.vue";
   </section>
 
   <div class="listings-footer">
-    <Pagination />
-    <a href="#">Back to top</a>
-    <SortSelect />
+    <div class="listings-footer__header">
+      <Pagination />
+      <a href="#">Back to top</a>
+      <SortSelect />
+    </div>
+
+    <div class="listings-footer__footer">
+      <div class="representative">
+        <p><strong>Representative example:</strong> Borrowing £11,790.00 over 4 years with a representative APR of 7.9 %, an annual interest rate of 4.08 % (Fixed) and a deposit of £500.00, the amount payable would be £273.59 per month, with a total cost of credit of £1,843.32 and a total amount payable of £13,633.32.</p>
+        <div class="select-wrapper">
+          <select name="breakdown" id="breakdown">
+            <option value="0">Show breakdown</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+          <div class="select-icon-wrapper">
+            <IconDown />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -45,44 +65,110 @@ import SortSelect from "./SortSelect.vue";
 .listings-footer {
   @include flex-base;
   flex-direction: column;
-  width: 100%;
 
-  @media (min-width: 768px) {
-    flex-direction: row;
-    width: calc($tile-width-tablet * 2) + $listings-gap-tablet;
-  }
-
-  a {
-    order: 2;
-    margin: 0 auto;
-    display: block;
-    width: fit-content;
-    text-align: center;
-    color: $text-grey;
-    font-size: 16px;
-
+  &__header {
+    @include flex-base;
+    flex-direction: column;
+    width: 100%;
+  
     @media (min-width: 768px) {
-      order: 1;
-      margin: 0 auto 0 0;
+      flex-direction: row;
+      width: calc($tile-width-tablet * 2) + $listings-gap-tablet;
     }
 
-    &::after {
-      content: '';
-      position: relative;
-      top: -4px;
+    a {
+      order: 2;
+      margin: 0 auto;
       display: block;
-      width: 100%;
-      height: 1px;
-      background-color: $text-grey;
+      width: fit-content;
+      text-align: center;
+      color: $text-grey;
+      font-size: 16px;
+
+      @media (min-width: 768px) {
+        order: 1;
+        margin: 0 auto 0 0;
+      }
+
+      &::after {
+        content: '';
+        position: relative;
+        top: -4px;
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: $text-grey;
+      }
+    }
+
+    .sort__select {
+      display: none;
+
+      @media (min-width: 768px) {
+        display: flex;
+        order: 3;
+      }
     }
   }
 
-  .sort__select {
-    display: none;
+  &__footer {
+    margin-top: 30px;
+    padding: 0 12px;
+
+    @media (min-width: 490px) {
+      padding: 0 50px;
+      max-width: 669px;
+    }
 
     @media (min-width: 768px) {
+      padding: 0;
+    }
+
+    .representative {
       display: flex;
-      order: 3;
+      padding: 15px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+      border-radius: 16px;
+      border: 1px solid $framework-borders;
+      background: $framework-light;
+
+      .select-wrapper {
+        @include flex-base;
+        position: relative;
+        width: 100%;
+
+        select {
+          padding: 12px 13px;
+          display: block;
+          width: 100%;
+          appearance: none;
+          border-radius: 16px;
+          background: $text-white;
+          font-size: 16px;
+          font-weight: 600;
+        }
+
+        .select-icon-wrapper {
+          @include flex-base;
+          justify-content: center;
+          position: absolute;
+          right: 13px;
+          width: 24px;
+          height: 24px;
+          background-color: $framework-borders;
+          border-radius: 8px;
+          pointer-events: none;
+
+          svg {
+
+            path {
+              stroke: $text-white;
+            }
+          }
+        }
+      }
     }
   }
 }
