@@ -88,8 +88,15 @@ function groupedStrings() {
     flex-direction: column;
     padding: 20px;
 
+    @media (min-width: 375px) {
+      margin: 0 auto;
+      max-width: 375px;
+    }
+
     @media (min-width: 768px) {
+      margin: 0;
       padding: 10px;
+      max-width: none;
     }
   }
 
@@ -247,6 +254,10 @@ function groupedStrings() {
     display: flex;
     gap: 5px;
     overflow-x: scroll;
+
+    @media (min-width: 490px) {
+      margin: 0 auto;
+    }
 
     @media (min-width: 768px) {
       padding: 0;
