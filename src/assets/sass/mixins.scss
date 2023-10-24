@@ -2,3 +2,13 @@
   display: flex;
   align-items: center;
 }
+
+@mixin btn-primary {
+  @include flex-base;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid $framework-borders;
+  background: none;
+  text-align: center;
+}
