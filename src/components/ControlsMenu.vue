@@ -1,5 +1,5 @@
 <script setup>
-import IconDown from "./icons/IconDown.vue"
+import SortSelect from "./SortSelect.vue";
 
 function toggleActive(id) {
   let classList = document.querySelectorAll('.controls-menu__buttons li')[id].classList
@@ -24,10 +24,7 @@ function toggleActive(id) {
       <span>339 cars</span>
     </p>
 
-    <div class="sort__select">
-      <p>Lowest price</p>
-      <IconDown />
-    </div>
+    <SortSelect />
   </div>
 </template>
 
@@ -135,31 +132,6 @@ ul.controls-menu__buttons {
     order: 1;
     font-size: 18px;
     font-weight: 700;
-  }
-}
-
-.sort__select {
-  @include flex-base;
-  justify-content: flex-end;
-  gap: 5px;
-  order: 3;
-  padding: 23px 13px 6px 0;
-  width: 50%;
-  background-color: $white;
-
-  @media (min-width: 768px) {
-    justify-content: center;
-    padding: 13px 18px 13px 13px;
-    height: 50px;
-    width: fit-content;
-    white-space: nowrap;
-    border-radius: 16px;
-    background: $framework-light;
-
-    p {
-      padding-right: 14px;
-      color: $text-grey;
-    }
   }
 }
 </style>

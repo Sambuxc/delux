@@ -74,8 +74,9 @@ function groupedStrings() {
   position: relative;
   display: flex;
   flex-direction: column;
+  width: 100vw;
 
-  @media (min-width: 768px) {
+  @media (min-width: 490px) {
     overflow: hidden;
     width: $tile-width-tablet;
     border-radius: 16px;
@@ -88,12 +89,12 @@ function groupedStrings() {
     flex-direction: column;
     padding: 20px;
 
-    @media (min-width: 375px) {
+    /*@media (min-width: 375px) {
       margin: 0 auto;
       max-width: 375px;
-    }
+    }*/
 
-    @media (min-width: 768px) {
+    @media (min-width: 490px) {
       margin: 0;
       padding: 10px;
       max-width: none;
@@ -128,7 +129,7 @@ function groupedStrings() {
       border: 1px solid rgba(255, 255, 255, 0.2);
       background: $framework-dark-1;
 
-      @media (min-width: 768px) {
+      @media (min-width: 490px) {
         position: absolute;
         top: 10px;
         left: 10px;
@@ -152,13 +153,13 @@ function groupedStrings() {
       width: 50%;
       line-height: 18px;
 
-      @media (min-width: 768px) {
+      @media (min-width: 490px) {
         width: 100%;
       }
     }
 
     &--price {
-      @media (min-width: 768px) {
+      @media (min-width: 490px) {
         display: flex;
         flex-direction: column;
       }
@@ -166,7 +167,7 @@ function groupedStrings() {
       .monthly-price {
         font-size: 14px;
 
-        @media (min-width: 768px) {
+        @media (min-width: 490px) {
           padding: 10px 0 5px 0;
           font-size: 18px;
         }
@@ -197,7 +198,7 @@ function groupedStrings() {
   }
 
   &--details__spec--details {
-    @media (min-width: 768px) {
+    @media (min-width: 490px) {
       position: absolute;
       top: 60%;
       left: 10px;
@@ -207,19 +208,19 @@ function groupedStrings() {
     .line-group {
       @include flex-base;
 
-      @media (min-width: 768px) {
+      @media (min-width: 490px) {
         gap: 5px;
       }
     }
 
     .line-group:first-child {
-      @media (min-width: 768px) {
+      @media (min-width: 490px) {
         margin-right: 5px;
       }
     }
 
     p {
-      @media (min-width: 768px) {
+      @media (min-width: 490px) {
         padding: 1px 10px;
         color: $text-white;
         border-radius: 8px;
@@ -243,7 +244,7 @@ function groupedStrings() {
       width: 1px;
       background-color: $framework-borders;
 
-      @media (min-width: 768px) {
+      @media (min-width: 490px) {
         display: none;
       }
     }
@@ -252,14 +253,15 @@ function groupedStrings() {
   &--gallery {
     padding: 0 13px;
     display: flex;
+    justify-content: flex-start;
     gap: 5px;
     overflow-x: scroll;
 
-    @media (min-width: 490px) {
+    /*@media (min-width: 490px) {
       margin: 0 auto;
-    }
+    }*/
 
-    @media (min-width: 768px) {
+    @media (min-width: 490px) {
       padding: 0;
       overflow: hidden;
     }
@@ -269,7 +271,7 @@ function groupedStrings() {
       height: 84px;
       border-radius: 16px;
 
-      @media (min-width: 768px) {
+      @media (min-width: 490px) {
         width: 100%;
         height: 250px;
         border-bottom-left-radius: 0;

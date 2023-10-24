@@ -25,6 +25,11 @@ import IconRight from "./icons/IconRight.vue"
 <style lang="scss">
 .pagination {
   padding: 30px 13px;
+  order: 1;
+
+  @media (min-width: 768px) {
+    order: 2;
+  }
   
   ul {
     @include flex-base;
