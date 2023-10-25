@@ -1,4 +1,4 @@
-<script>
+<script setup>
 import IconStar from "./icons/IconStar.vue";
 
 const props = defineProps(['name', 'desc', 'spec', 'total_price', 'discount_price', 'monthly_price', 'imgUrl'])
