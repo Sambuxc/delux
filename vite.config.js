@@ -6,7 +6,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/", // github pages app location
+  base: "/automotive-vue-js-site", // github pages app location
   plugins: [vue(), vueJsx()],
   resolve: {
     alias: {
