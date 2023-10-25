@@ -4,6 +4,7 @@ import Header from './components/Header.vue';
 import SearchFilterMenu from './components/SearchFilterMenu.vue';
 import FiltersMenuButton from './components/FiltersMenuButton.vue';
 import Listings from './components/Listings.vue';
+import MainFooter from './components/MainFooter.vue';
 </script>
 
 <template>
@@ -17,7 +18,7 @@ import Listings from './components/Listings.vue';
       <Listings />
     </main>
 
-
+    <MainFooter />
 </template>
 
 <style lang="scss">

@@ -1,8 +1,10 @@
 .btn-blue {
+  align-items: center;
   padding: 11px 15px;
   height: 30px;
   background: #82f7ff;
   border-radius: 16px;
+  font-weight: 600;
 
   @media (min-width: 768px) {
     padding: 12px 25px;
