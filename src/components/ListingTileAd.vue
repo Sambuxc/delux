@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import ButtonLink from "@/components/buttons/ButtonLink.vue";
+</script>
 
 <template>
   <div class="listings__tile--ad">
@@ -7,13 +9,14 @@
     <form action="">
       <div class="form-input">
         <label for="vrm" aria-required="true">VRM</label>
-        <input type="text" name="vrm" id="vrm" placeholder="Enter VRM" />
+        <input id="vrm" type="text" name="vrm" placeholder="Enter VRM" />
       </div>
       <div class="form-input">
         <label for="mileage" aria-required="true">Mileage</label>
-        <input type="text" name="mileage" id="mileage" placeholder="Enter mileage" />
+        <input id="mileage" type="text" name="mileage" placeholder="Enter mileage" />
       </div>
-      <input class="btn-primary" type="button" value="Value my car">
+      <!-- <input class="btn" type="button" value="Value my car"> -->
+      <button-link buttonType="input" url="http://hello.com" text="Value my car"></button-link>
     </form>
   </div>
 </template>
@@ -66,27 +69,13 @@
       padding-left: 2px;
       color: red;
     }
-    
+
     input[type=text] {
       padding: 13px;
       height: 50px;
       border: 0;
       border-radius: 16px;
       background-color: $text-white;
-    }
-
-    .btn-primary {
-      @include flex-base;
-      justify-content: center;
-      appearance: none;
-      padding: 12px 25px;
-      width: 100%;
-      border: 0;
-      border-radius: 16px;
-      background: $brand-primary;
-      font-family: 'Overpass-variable';
-      color: $text-white;
-      font-size: 15px;
     }
   }
 }
