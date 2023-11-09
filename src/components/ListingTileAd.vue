@@ -1,5 +1,5 @@
 <script setup>
-import ButtonLink from "@/components/ButtonLink.vue"
+import ButtonLink from '@/components/ButtonLink.vue'
 </script>
 
 <template>
@@ -40,7 +40,6 @@ import ButtonLink from "@/components/ButtonLink.vue"
     text-align: center;
   }
 
-
   form {
     @include flex-base;
     flex-direction: column;
@@ -50,7 +49,7 @@ import ButtonLink from "@/components/ButtonLink.vue"
     .form-input {
       width: 100%;
       display: flex;
-      flex-direction: column
+      flex-direction: column;
     }
 
     label {
@@ -64,13 +63,13 @@ import ButtonLink from "@/components/ButtonLink.vue"
       background-color: $framework-light;
     }
 
-    label[aria-required=true]::after {
+    label[aria-required='true']::after {
       content: '*';
       padding-left: 2px;
       color: red;
     }
 
-    input[type=text] {
+    input[type='text'] {
       padding: 13px;
       height: 50px;
       border: 0;

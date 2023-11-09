@@ -1,20 +1,66 @@
 <script setup>
-import ListingTile from "./ListingTile.vue";
-import ListingTileAd from "./ListingTileAd.vue";
-import Pagination from "./Pagination.vue";
-import SortSelect from "./SortSelect.vue";
-import IconDown from "./icons/IconDown.vue";
+import ListingTile from './ListingTile.vue'
+import ListingTileAd from './ListingTileAd.vue'
+import Pagination from './Pagination.vue'
+import SortSelect from './SortSelect.vue'
+import IconDown from './icons/IconDown.vue'
 </script>
 
 <template>
   <section class="listings">
-    <ListingTile name="2014 (64) Mercedes-Benz" desc="CLA 250e Coupe Shooting Break" spec="32k miles,Hybrid,Manual,SUV" monthly_price="550.90" total_price="23,300" imgUrl="mercedes-car.jpeg" />
-    <ListingTile name="2019 (19) Renault Zoe" desc="i R135 Rapid Charge ZE50" spec="325 miles,EV,Automatic,Hatchback" monthly_price="550.90" total_price="23,300" discount_price="22,300" imgUrl="renault.jpeg" />
-    <ListingTile name="2020 (20) Peugeot 208" desc="1.2 PureTech 100 GT-Line" spec="Petrol,Automatic,Hatchback" monthly_price="550.90" total_price="23,300" discount_price="22,300" imgUrl="peugeot.jpeg" />
+    <ListingTile
+      name="2014 (64) Mercedes-Benz"
+      desc="CLA 250e Coupe Shooting Break"
+      spec="32k miles,Hybrid,Manual,SUV"
+      monthly_price="550.90"
+      total_price="23,300"
+      img-url="mercedes-car.jpeg"
+    />
+    <ListingTile
+      name="2019 (19) Renault Zoe"
+      desc="i R135 Rapid Charge ZE50"
+      spec="325 miles,EV,Automatic,Hatchback"
+      monthly_price="550.90"
+      total_price="23,300"
+      discount_price="22,300"
+      img-url="renault.jpeg"
+    />
+    <ListingTile
+      name="2020 (20) Peugeot 208"
+      desc="1.2 PureTech 100 GT-Line"
+      spec="Petrol,Automatic,Hatchback"
+      monthly_price="550.90"
+      total_price="23,300"
+      discount_price="22,300"
+      img-url="peugeot.jpeg"
+    />
     <ListingTileAd />
-    <ListingTile name="2014 (64) Mercedes-Benz" desc="CLA 250e Coupe Shooting Break" spec="32k miles,Hybrid,Manual,SUV" monthly_price="550.90" total_price="23,300" imgUrl="mercedes-car.jpeg" />
-    <ListingTile name="2019 (19) Renault Zoe" desc="i R135 Rapid Charge ZE50" spec="325 miles,EV,Automatic,Hatchback" monthly_price="550.90" total_price="23,300" discount_price="22,300" imgUrl="renault.jpeg" />
-    <ListingTile name="2020 (20) Peugeot 208" desc="1.2 PureTech 100 GT-Line" spec="Petrol,Automatic,Hatchback" monthly_price="550.90" total_price="23,300" discount_price="22,300" imgUrl="peugeot.jpeg" />
+    <ListingTile
+      name="2014 (64) Mercedes-Benz"
+      desc="CLA 250e Coupe Shooting Break"
+      spec="32k miles,Hybrid,Manual,SUV"
+      monthly_price="550.90"
+      total_price="23,300"
+      img-url="mercedes-car.jpeg"
+    />
+    <ListingTile
+      name="2019 (19) Renault Zoe"
+      desc="i R135 Rapid Charge ZE50"
+      spec="325 miles,EV,Automatic,Hatchback"
+      monthly_price="550.90"
+      total_price="23,300"
+      discount_price="22,300"
+      img-url="renault.jpeg"
+    />
+    <ListingTile
+      name="2020 (20) Peugeot 208"
+      desc="1.2 PureTech 100 GT-Line"
+      spec="Petrol,Automatic,Hatchback"
+      monthly_price="550.90"
+      total_price="23,300"
+      discount_price="22,300"
+      img-url="peugeot.jpeg"
+    />
   </section>
 
   <div class="listings-footer">
@@ -26,9 +72,14 @@ import IconDown from "./icons/IconDown.vue";
 
     <div class="listings-footer__footer">
       <div class="representative">
-        <p><strong>Representative example:</strong> Borrowing £11,790.00 over 4 years with a representative APR of 7.9 %, an annual interest rate of 4.08 % (Fixed) and a deposit of £500.00, the amount payable would be £273.59 per month, with a total cost of credit of £1,843.32 and a total amount payable of £13,633.32.</p>
+        <p>
+          <strong>Representative example:</strong> Borrowing £11,790.00 over 4 years with a
+          representative APR of 7.9 %, an annual interest rate of 4.08 % (Fixed) and a deposit of
+          £500.00, the amount payable would be £273.59 per month, with a total cost of credit of
+          £1,843.32 and a total amount payable of £13,633.32.
+        </p>
         <div class="select-wrapper">
-          <select name="breakdown" id="breakdown">
+          <select id="breakdown" name="breakdown">
             <option value="0">Show breakdown</option>
             <option value="1">One</option>
             <option value="2">Two</option>
@@ -48,7 +99,7 @@ import IconDown from "./icons/IconDown.vue";
   display: flex;
   flex-direction: column;
   padding: 20px 0;
-  
+
   @media (min-width: 490px) {
     gap: $listings-gap-tablet;
   }
@@ -70,7 +121,7 @@ import IconDown from "./icons/IconDown.vue";
     @include flex-base;
     flex-direction: column;
     width: 100%;
-  
+
     @media (min-width: 768px) {
       flex-direction: row;
       width: calc($tile-width-tablet * 2) + $listings-gap-tablet;
@@ -162,7 +213,6 @@ import IconDown from "./icons/IconDown.vue";
           pointer-events: none;
 
           svg {
-
             path {
               stroke: $text-white;
             }
