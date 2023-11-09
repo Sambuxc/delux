@@ -30,13 +30,19 @@ function groupedStrings() {
       <img class="md:hidden" :src="imgUrl" :alt="name" />
       <img class="md:hidden" :src="imgUrl" :alt="name" />
       <img class="md:hidden" :src="imgUrl" :alt="name" />
+
+      <div class="listings__tile--gallery__labels">
+        <div v-for="(group, index) in groupedStrings()" :key="index" class="line-group">
+          <p v-for="(string, i) in group" :key="i">{{ string }}</p>
+        </div>
+      </div>
     </div>
     <div class="listings__tile--details">
       <div class="listings__tile--details__heading">
         <h3>
           <span class="text">{{ name }}</span>
           <span class="button__tag">New</span>
-          <IconStar />
+          <IconStar class="star-icon" />
         </h3>
         <p class="listings__tile--details__heading--caption">
           {{ desc }}
@@ -45,7 +51,7 @@ function groupedStrings() {
 
       <div class="listings__tile--details__spec">
         <div class="listings__tile--details__spec--details">
-          <div class="line-group" v-for="(group, index) in groupedStrings()" :key="index">
+          <div v-for="(group, index) in groupedStrings()" :key="index" class="line-group">
             <p v-for="(string, i) in group" :key="i">{{ string }}</p>
           </div>
         </div>
@@ -54,15 +60,15 @@ function groupedStrings() {
             <span><strong>£{{ monthly_price }}</strong></span>
             <span class="unit">/mo (PCP)</span>
           </p>
-          <p class="total-price" v-if="discount_price">
+          <p v-if="discount_price" class="total-price">
             <span class="text-red">£{{ discount_price }}</span>
             &nbsp;
             <span class="strikeout">£{{ total_price }}</span>
           </p>
-          <p class="total-price" v-else>
+          <p v-else class="total-price">
             <span>£{{ total_price }}</span>
           </p>
-          
+
         </div>
       </div>
     </div>
@@ -119,22 +125,25 @@ function groupedStrings() {
     .button__tag {
       @include flex-base;
       justify-content: center;
-      padding: 1px 10px;
-      height: fit-content;
+      padding: 5px 10px;
 
       font-size: 12px;
-      line-height: 20px;
+      line-height: normal;
       color: $text-white;
       border-radius: 8px;
       border: 1px solid rgba(255, 255, 255, 0.2);
       background: $framework-dark-1;
+      transition: opacity .3s ease;;
 
       @media (min-width: 490px) {
         position: absolute;
         top: 10px;
         left: 10px;
-        font-size: 16px;
-        height: 30px;
+        font-size: 14px;
+      }
+
+      &:hover {
+        cursor: pointer;
       }
     }
 
@@ -163,7 +172,7 @@ function groupedStrings() {
         display: flex;
         flex-direction: column;
       }
-      
+
       .monthly-price {
         font-size: 14px;
 
@@ -199,34 +208,11 @@ function groupedStrings() {
 
   &--details__spec--details {
     @media (min-width: 490px) {
-      position: absolute;
-      top: 60%;
-      left: 10px;
-      display: flex;
+      display: none;
     }
 
     .line-group {
       @include flex-base;
-
-      @media (min-width: 490px) {
-        gap: 5px;
-      }
-    }
-
-    .line-group:first-child {
-      @media (min-width: 490px) {
-        margin-right: 5px;
-      }
-    }
-
-    p {
-      @media (min-width: 490px) {
-        padding: 1px 10px;
-        color: $text-white;
-        border-radius: 8px;
-        border: 1px solid rgba(255, 255, 255, 0.20);
-        background: $framework-dark-1;
-      }
     }
 
     p + p {
@@ -251,6 +237,7 @@ function groupedStrings() {
   }
 
   &--gallery {
+    position: relative;
     padding: 0 13px;
     display: flex;
     justify-content: flex-start;
@@ -278,6 +265,61 @@ function groupedStrings() {
         border-bottom-right-radius: 0;
       }
     }
+
+    &__labels {
+      display: none;
+
+      @media (min-width: 490px) {
+        @include flex-base;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        margin: 5px;
+      }
+
+      .line-group {
+        @media (min-width: 490px) {
+          display: flex;
+          gap: 5px;
+        }
+      }
+
+      .line-group:first-child {
+        @media (min-width: 490px) {
+          margin-right: 5px;
+        }
+      }
+
+      p {
+        @media (min-width: 490px) {
+          font-size: 10px;
+          padding: 1px 10px;
+          color: $text-white;
+          border-radius: 8px;
+          border: 1px solid rgba(255, 255, 255, 0.20);
+          background: $framework-dark-1;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+  .star-icon {
+    cursor: pointer;
+
+    &:hover path {
+      fill: $brand-primary;
+      stroke: none;
+    }
+
+    path {
+      stroke: $framework-dark-2;
+      stroke-width: 1.2px;
+      fill: none;
+    }
   }
 }
+
 </style>
