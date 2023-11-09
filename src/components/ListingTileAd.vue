@@ -1,5 +1,5 @@
 <script setup>
-import ButtonLink from "@/components/buttons/ButtonLink.vue";
+import ButtonLink from "@/components/ButtonLink.vue"
 </script>
 
 <template>
@@ -15,8 +15,8 @@ import ButtonLink from "@/components/buttons/ButtonLink.vue";
         <label for="mileage" aria-required="true">Mileage</label>
         <input id="mileage" type="text" name="mileage" placeholder="Enter mileage" />
       </div>
-      <!-- <input class="btn" type="button" value="Value my car"> -->
-      <button-link buttonType="input" url="http://hello.com" text="Value my car"></button-link>
+
+      <button-link buttonType="input" text="Value my car"></button-link>
     </form>
   </div>
 </template>

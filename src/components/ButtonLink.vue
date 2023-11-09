@@ -18,7 +18,7 @@ const props = defineProps({
 })
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .btn {
   @include flex-base;
   justify-content: center;
@@ -33,7 +33,5 @@ const props = defineProps({
   color: $text-white;
   font-size: 15px;
   line-height: 1.6;
-
-  // @container (max-width:50px)
 }
 </style>
