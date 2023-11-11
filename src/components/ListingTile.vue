@@ -1,8 +1,16 @@
 <script setup>
-import IconStar from "./icons/IconStar.vue";
-import ListingLabels from "@/components/ListingLabels.vue";
+import IconStar from './icons/IconStar.vue'
+import ListingLabels from '@/components/ListingLabels.vue'
 
-const props = defineProps(['name', 'desc', 'spec', 'total_price', 'discount_price', 'monthly_price', 'imgUrl'])
+const props = defineProps([
+  'name',
+  'desc',
+  'spec',
+  'total_price',
+  'discount_price',
+  'monthly_price',
+  'imgUrl'
+])
 </script>
 
 <template>
@@ -13,9 +21,7 @@ const props = defineProps(['name', 'desc', 'spec', 'total_price', 'discount_pric
       <img class="md:hidden" :src="imgUrl" :alt="name" />
       <img class="md:hidden" :src="imgUrl" :alt="name" />
 
-      <div class="listings__tile--gallery__labels">
-        <listing-labels :labels="props.spec"></listing-labels>
-      </div>
+      <listing-labels :labels="props.spec"></listing-labels>
     </div>
     <div class="listings__tile--details">
       <div class="listings__tile--details__heading">
@@ -35,7 +41,9 @@ const props = defineProps(['name', 'desc', 'spec', 'total_price', 'discount_pric
         </div>
         <div class="listings__tile--details__spec--price">
           <p class="monthly-price">
-            <span><strong>£{{ monthly_price }}</strong></span>
+            <span
+              ><strong>£{{ monthly_price }}</strong></span
+            >
             <span class="unit">/mo (PCP)</span>
           </p>
           <p v-if="discount_price" class="total-price">
@@ -46,7 +54,6 @@ const props = defineProps(['name', 'desc', 'spec', 'total_price', 'discount_pric
           <p v-else class="total-price">
             <span>£{{ total_price }}</span>
           </p>
-
         </div>
       </div>
     </div>
@@ -72,11 +79,6 @@ const props = defineProps(['name', 'desc', 'spec', 'total_price', 'discount_pric
     display: flex;
     flex-direction: column;
     padding: 20px;
-
-    /*@media (min-width: 375px) {
-      margin: 0 auto;
-      max-width: 375px;
-    }*/
 
     @media (min-width: 490px) {
       margin: 0;
@@ -111,7 +113,7 @@ const props = defineProps(['name', 'desc', 'spec', 'total_price', 'discount_pric
       border-radius: 8px;
       border: 1px solid rgba(255, 255, 255, 0.2);
       background: $framework-dark-1;
-      transition: opacity .3s ease;;
+      transition: opacity 0.3s ease;
 
       @media (min-width: 490px) {
         position: absolute;
@@ -133,7 +135,8 @@ const props = defineProps(['name', 'desc', 'spec', 'total_price', 'discount_pric
   }
 
   &--details__spec {
-    @include flex-base;
+    display: flex;
+    align-items: flex-end;
     padding-top: 6px;
 
     > div {
@@ -146,9 +149,12 @@ const props = defineProps(['name', 'desc', 'spec', 'total_price', 'discount_pric
     }
 
     &--price {
-      @media (min-width: 490px) {
-        display: flex;
-        flex-direction: column;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+
+      @media screen and (min-width: 490px) {
+        align-items: flex-start;
       }
 
       .monthly-price {
@@ -165,52 +171,33 @@ const props = defineProps(['name', 'desc', 'spec', 'total_price', 'discount_pric
         }
       }
 
-       .total-price {
+      .total-price {
         span:last-child::after {
           content: 'Calculate finance';
           padding-left: 8px;
           position: relative;
-          display: inline-block;
+          display: block;
           font-size: inherit;
           color: $brand-primary;
+
+          @media screen and (min-width: 490px) {
+            display: inline-block;
+          }
         }
-       }
+      }
     }
 
     p {
       display: inline-block;
       color: $text-grey;
       font-size: 12px;
+      text-align: right;
     }
   }
 
   &--details__spec--details {
     @media (min-width: 490px) {
       display: none;
-    }
-
-    .line-group {
-      @include flex-base;
-    }
-
-    p + p {
-      @include flex-base;
-      gap: 4px;
-    }
-
-    p + p::before {
-      content: '';
-      display: block;
-      position: relative;
-      left: 0;
-      margin-left: 4px;
-      height: 10px;
-      width: 1px;
-      background-color: $framework-borders;
-
-      @media (min-width: 490px) {
-        display: none;
-      }
     }
   }
 
@@ -243,46 +230,6 @@ const props = defineProps(['name', 'desc', 'spec', 'total_price', 'discount_pric
         border-bottom-right-radius: 0;
       }
     }
-
-    &__labels {
-      display: none;
-
-      @media (min-width: 490px) {
-        @include flex-base;
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        margin: 5px;
-      }
-
-      .line-group {
-        @media (min-width: 490px) {
-          display: flex;
-          gap: 5px;
-        }
-      }
-
-      .line-group:first-child {
-        @media (min-width: 490px) {
-          margin-right: 5px;
-        }
-      }
-
-      p {
-        @media (min-width: 490px) {
-          font-size: 10px;
-          padding: 1px 10px;
-          color: $text-white;
-          border-radius: 8px;
-          border: 1px solid rgba(255, 255, 255, 0.20);
-          background: $framework-dark-1;
-
-          &:hover {
-            cursor: pointer;
-          }
-        }
-      }
-    }
   }
   .star-icon {
     cursor: pointer;
@@ -299,5 +246,4 @@ const props = defineProps(['name', 'desc', 'spec', 'total_price', 'discount_pric
     }
   }
 }
-
 </style>
