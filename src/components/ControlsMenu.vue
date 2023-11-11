@@ -9,6 +9,10 @@ function toggleActive(id) {
     classList.add('active')
   }
 }
+
+function getSelectItems() {
+  return ['Lowest price', 'Highest price', 'Most popular', 'Least popular']
+}
 </script>
 <template>
   <div class="controls-menu">
@@ -24,7 +28,7 @@ function toggleActive(id) {
       <span>339 cars</span>
     </p>
 
-    <SortSelect />
+    <SortSelect :items="getSelectItems()"/>
   </div>
 </template>
 

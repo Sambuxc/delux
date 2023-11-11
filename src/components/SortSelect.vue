@@ -1,37 +1,59 @@
 <script setup>
 import IconDown from "./icons/IconDown.vue";
+
+const props = defineProps({
+  items: {
+    type: Array,
+    required: true
+  }
+})
+
 </script>
 
 <template>
-  <div class="sort__select">
-    <p>Lowest price</p>
+  <div class="custom-select">
+    <select>
+      <option v-for="item in props.items" :key="item.id" :value="item">{{ item }}</option>
+    </select>
     <IconDown />
   </div>
 </template>
 
-<style lang="scss">
-.sort__select {
+<style lang="scss" scoped>
+.custom-select {
   @include flex-base;
   justify-content: flex-end;
   gap: 5px;
   order: 3;
-  padding: 23px 13px 6px 0;
+  position: relative;
   width: 50%;
   background-color: $white;
 
   @media (min-width: 768px) {
     justify-content: center;
-    padding: 13px 18px 13px 13px;
     height: 50px;
     width: fit-content;
     white-space: nowrap;
     border-radius: 16px;
     background: $framework-light;
 
-    p {
-      padding-right: 14px;
-      color: $text-grey;
-    }
+  }
+
+  select {
+    appearance: none;
+    background: none;
+    border: none;
+    outline: none;
+    position: relative;
+    padding: 20px 23px 20px 12px;
+    width: 100%;
+    z-index: 2;
+  }
+
+  svg {
+    position: absolute;
+    right: 10px;
+    z-index: 1;
   }
 }
 </style>

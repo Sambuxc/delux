@@ -4,6 +4,10 @@ import ListingTileAd from './ListingTileAd.vue'
 import Pagination from './Pagination.vue'
 import SortSelect from './SortSelect.vue'
 import IconDown from './icons/IconDown.vue'
+
+function getSelectItems() {
+  return ['Lowest price', 'Highest price', 'Most popular', 'Least popular']
+}
 </script>
 
 <template>
@@ -67,7 +71,7 @@ import IconDown from './icons/IconDown.vue'
     <div class="listings-footer__header">
       <Pagination />
       <a href="#">Back to top</a>
-      <SortSelect />
+      <SortSelect :items="getSelectItems()" />
     </div>
 
     <div class="listings-footer__footer">
