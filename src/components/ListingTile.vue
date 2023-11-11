@@ -1,26 +1,8 @@
 <script setup>
 import IconStar from "./icons/IconStar.vue";
+import ListingLabels from "@/components/ListingLabels.vue";
 
 const props = defineProps(['name', 'desc', 'spec', 'total_price', 'discount_price', 'monthly_price', 'imgUrl'])
-
-const specArr = props.spec.split(',');
-
-/**
- * Group strings into pairs from an array.
- *
- * @param {Array} specArr - The input array of strings to be grouped.
- * @returns {Array} An array containing sub-arrays with pairs of strings.
- */
-function groupedStrings() {
-  // an array to store the groups of strings.
-  const groups = [];
-  for (let i = 0; i < this.specArr.length; i += 2) {
-    // Slice the input array to create a group of 2 strings.
-    const group = this.specArr.slice(i, i + 2);
-    groups.push(group);
-  }
-  return groups;
-}
 </script>
 
 <template>
@@ -32,9 +14,7 @@ function groupedStrings() {
       <img class="md:hidden" :src="imgUrl" :alt="name" />
 
       <div class="listings__tile--gallery__labels">
-        <div v-for="(group, index) in groupedStrings()" :key="index" class="line-group">
-          <p v-for="(string, i) in group" :key="i">{{ string }}</p>
-        </div>
+        <listing-labels :labels="props.spec"></listing-labels>
       </div>
     </div>
     <div class="listings__tile--details">
@@ -51,9 +31,7 @@ function groupedStrings() {
 
       <div class="listings__tile--details__spec">
         <div class="listings__tile--details__spec--details">
-          <div v-for="(group, index) in groupedStrings()" :key="index" class="line-group">
-            <p v-for="(string, i) in group" :key="i">{{ string }}</p>
-          </div>
+          <listing-labels :labels="props.spec"></listing-labels>
         </div>
         <div class="listings__tile--details__spec--price">
           <p class="monthly-price">
