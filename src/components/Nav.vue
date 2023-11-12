@@ -3,13 +3,13 @@
     <i class="marker"></i>
     <nav>
       <div class="menu-wrapper">
-        <RouterLink to="/" class="nav-item-text" @focus="">Home</RouterLink>
-        <RouterLink to="/our-cars" class="nav-item-text">Our cars</RouterLink>
-        <RouterLink to="/sell" class="nav-item-text">Sell your car</RouterLink>
-        <RouterLink to="/apply" class="nav-item-text">Apply for finance</RouterLink>
-        <RouterLink to="/about" class="nav-item-text">About us</RouterLink>
-        <RouterLink to="/blog" class="nav-item-text">Blog</RouterLink>
-        <RouterLink to="/contact" class="nav-item-text">Contact</RouterLink>
+        <nav-link-item to="/" text="Home"></nav-link-item>
+        <nav-link-item to="/our-cars" text="Our cars"></nav-link-item>
+        <nav-link-item to="/sell" text="Sell your car"></nav-link-item>
+        <nav-link-item to="/apply" text="Apply for finance"></nav-link-item>
+        <nav-link-item to="/about" text="About us"></nav-link-item>
+        <nav-link-item to="/blog" text="Blog"></nav-link-item>
+        <nav-link-item to="/contact" text="Contact"></nav-link-item>
       </div>
 
       <RouterLink to="/contact" class="btn-blue md:hidden">Contact</RouterLink>
@@ -34,10 +34,11 @@
 
 <script setup>
 import { onMounted } from 'vue'
+import NavLinkItem from '@/components/NavLinkItem.vue'
 
 onMounted(() => {
   const marker = document.querySelector('.marker')
-  const firstItemValues = document.querySelector('nav a:first-child').getBoundingClientRect()
+  const firstItemValues = document.querySelector('.nav-item-text:first-child').getBoundingClientRect()
   /**
    * Set the left position correctly
    * */
@@ -96,46 +97,8 @@ nav {
   }
 
   /*
-    Generic menu items
-  */
-
-  a.router-link-exact-active:hover {
-    background-color: transparent;
-  }
-
-  a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    /*font-family: Overpass;*/
-    line-height: 27px;
-    font-size: 16px;
-    color: black;
-  }
-
-  a.router-link-exact-active {
-    color: var(--color-text);
-  }
-
-  // a.router-link-exact-active::before {
-  //   content: '';
-  //   position: absolute;
-  //   top: 0;
-  //   display: block;
-  //   width: 5px;
-  //   height: 24px;
-  //   border-radius: 0px 0px 100px 100px;
-  //   background-color: #7572ff;
-  // }
-
-  /*
     Specific menu items
   */
-
-  .nav-item-text {
-    color: grey;
-  }
 
   .nav-item-btn {
     margin: 0;
