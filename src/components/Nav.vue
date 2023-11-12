@@ -1,8 +1,9 @@
 <template>
-  <div class="flex lg:w-full">
+  <div class="relative flex lg:w-full">
+    <i class="marker"></i>
     <nav>
       <div class="menu-wrapper">
-        <RouterLink to="/" class="nav-item-text">Home</RouterLink>
+        <RouterLink to="/" class="nav-item-text" @focus="">Home</RouterLink>
         <RouterLink to="/our-cars" class="nav-item-text">Our cars</RouterLink>
         <RouterLink to="/sell" class="nav-item-text">Sell your car</RouterLink>
         <RouterLink to="/apply" class="nav-item-text">Apply for finance</RouterLink>
@@ -32,7 +33,23 @@
 </template>
 
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  const marker = document.querySelector('.marker')
+  const firstItemValues = document.querySelector('nav a:first-child').getBoundingClientRect()
+  /**
+   * Set the left position correctly
+   * */
+  // the left value of the nav item minus the marker's left value because when setting the style left pos to equal firstItemValues.left it adds to its original value.
+  // centerPos - markerWidth to positioning it in the center of nav item.
+  let centerPos = firstItemValues.width / 2
+  let markerWidth = 2.5
+  let leftPos = (firstItemValues.left - marker.getBoundingClientRect().left) + (centerPos - markerWidth)
+  marker.style.left = leftPos + 'px'
+
+
+})
 </script>
 
 <style lang="scss">
@@ -53,6 +70,7 @@ nav {
   width: 100%;
   text-align: center;
   gap: 15px;
+  position: relative;
 
   @media (min-width: 1024px) {
     width: 100%;
@@ -100,16 +118,16 @@ nav {
     color: var(--color-text);
   }
 
-  a.router-link-exact-active::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    display: block;
-    width: 5px;
-    height: 24px;
-    border-radius: 0px 0px 100px 100px;
-    background-color: #7572ff;
-  }
+  // a.router-link-exact-active::before {
+  //   content: '';
+  //   position: absolute;
+  //   top: 0;
+  //   display: block;
+  //   width: 5px;
+  //   height: 24px;
+  //   border-radius: 0px 0px 100px 100px;
+  //   background-color: #7572ff;
+  // }
 
   /*
     Specific menu items
@@ -127,5 +145,17 @@ nav {
       margin-right: 10px;
     }
   }
+}
+
+.marker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 5px;
+  height: 24px;
+  border-radius: 0px 0px 100px 100px;
+  background-color: #7572ff;
+  transition: .5s left ease;
 }
 </style>

@@ -6,6 +6,10 @@
   align-items: center;
 }
 
+.relative {
+  position: relative;
+}
+
 .flex {
   @include flex-base;
 }
