@@ -1,19 +1,3 @@
-<script setup>
-import SortSelect from "./SortSelect.vue";
-
-function toggleActive(id) {
-  let classList = document.querySelectorAll('.controls-menu__buttons li')[id].classList
-  if( classList.contains('active') ) {
-    classList.remove('active')
-  } else {
-    classList.add('active')
-  }
-}
-
-function getSelectItems() {
-  return ['Lowest price', 'Highest price', 'Most popular', 'Least popular']
-}
-</script>
 <template>
   <div class="controls-menu">
     <ul class="controls-menu__buttons">
@@ -31,6 +15,23 @@ function getSelectItems() {
     <SortSelect :items="getSelectItems()"/>
   </div>
 </template>
+
+<script setup>
+import SortSelect from "./SortSelect.vue";
+
+function toggleActive(id) {
+  let classList = document.querySelectorAll('.controls-menu__buttons li')[id].classList
+  if( classList.contains('active') ) {
+    classList.remove('active')
+  } else {
+    classList.add('active')
+  }
+}
+
+function getSelectItems() {
+  return ['Lowest price', 'Highest price', 'Most popular', 'Least popular']
+}
+</script>
 
 <style lang="scss">
 .controls-menu {
@@ -102,6 +103,10 @@ ul.controls-menu__buttons {
       border: 1px solid $text-black;
       background-color: $text-white;
       color: $text-black;
+    }
+
+    &:hover {
+      cursor: pointer;
     }
   }
   li.inactive {
