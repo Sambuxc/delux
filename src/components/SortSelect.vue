@@ -46,7 +46,6 @@ const props = defineProps({
     outline: none;
     position: relative;
     padding: 20px 23px 20px 12px;
-    width: 100%;
     z-index: 2;
   }
 
