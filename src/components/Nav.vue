@@ -1,7 +1,3 @@
-<script setup>
-import { RouterLink, RouterView } from "vue-router";
-</script>
-
 <template>
   <div class="flex lg:w-full">
     <nav>
@@ -16,9 +12,11 @@ import { RouterLink, RouterView } from "vue-router";
       </div>
 
       <RouterLink to="/contact" class="btn-blue md:hidden">Contact</RouterLink>
-      <RouterLink to="mailto:samwbru@gmail.com" class="order-1 hidden btn-blue md:flex lg:order-2">Email</RouterLink>
+      <RouterLink to="mailto:samwbru@gmail.com" class="order-1 hidden btn-blue md:flex lg:order-2"
+        >Email</RouterLink
+      >
       <RouterLink to="/call" class="order-2 hidden btn-blue md:flex lg:order-1">Call</RouterLink>
-      
+
       <div class="flex lg:hidden">
         <a class="nav-item-btn">Menu</a>
         <img
@@ -26,11 +24,16 @@ import { RouterLink, RouterView } from "vue-router";
           src="@/assets/menu-icon.svg"
           alt="menu icon"
           width="24"
-          height="24" />
+          height="24"
+        />
       </div>
     </nav>
   </div>
 </template>
+
+<script setup>
+import { RouterLink, RouterView } from 'vue-router'
+</script>
 
 <style lang="scss">
 .logo {
@@ -105,7 +108,7 @@ nav {
     width: 5px;
     height: 24px;
     border-radius: 0px 0px 100px 100px;
-    background-color: #7572FF;
+    background-color: #7572ff;
   }
 
   /*
