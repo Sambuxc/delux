@@ -3,13 +3,13 @@
     <i class="marker"></i>
     <nav>
       <div class="menu-wrapper">
-        <nav-link-item to="/" text="Home" @clicked="handleClick"></nav-link-item>
-        <nav-link-item to="/our-cars" text="Our cars" @clicked="handleClick"></nav-link-item>
-        <nav-link-item to="/sell" text="Sell your car" @clicked="handleClick"></nav-link-item>
-        <nav-link-item to="/apply" text="Apply for finance" @clicked="handleClick"></nav-link-item>
-        <nav-link-item to="/about" text="About us" @clicked="handleClick"></nav-link-item>
-        <nav-link-item to="/blog" text="Blog" @clicked="handleClick"></nav-link-item>
-        <nav-link-item to="/contact" text="Contact" @clicked="handleClick"></nav-link-item>
+        <nav-link-item to="/" text="Home" @handleMouseover="handleMouseover"></nav-link-item>
+        <nav-link-item to="/our-cars" text="Our cars" @handleMouseover="handleMouseover"></nav-link-item>
+        <nav-link-item to="/sell" text="Sell your car" @handleMouseover="handleMouseover"></nav-link-item>
+        <nav-link-item to="/apply" text="Apply for finance" @handleMouseover="handleMouseover"></nav-link-item>
+        <nav-link-item to="/about" text="About us" @handleMouseover="handleMouseover"></nav-link-item>
+        <nav-link-item to="/blog" text="Blog" @handleMouseover="handleMouseover"></nav-link-item>
+        <nav-link-item to="/contact" text="Contact" @handleMouseover="handleMouseover"></nav-link-item>
       </div>
 
       <RouterLink to="/contact" class="btn-blue md:hidden">Contact</RouterLink>
@@ -42,12 +42,13 @@ onMounted(() => {
   root = document.documentElement
   marker = document.querySelector('.marker')
   navBar = document.querySelector('nav')
-  const firstNavItem = document.querySelector('nav a:first-child')
   setTimeout(() => {
+    const activeNavItem = document.querySelector('.router-link-exact-active.nav-item-text')
     // for now wait a lil bit to ensure other dom elements have loaded otherwise marker position is incorrect
     // TODO: look into the lifecycle rendering of Nav component in relation to Header/logo component
-    moveMarkerOverElement(firstNavItem)
-  }, 100)
+    // might need to do something is onUpdated hook
+    moveMarkerOverElement(activeNavItem)
+  }, 300)
 })
 
 /**
@@ -55,7 +56,7 @@ onMounted(() => {
    the left value of the nav item minus the marker's left value because when setting the style left pos to equal firstItemValues.left it adds to its original value.
    centerPos - markerWidth to positioning it in the center of nav item.
 * */
-function handleClick(n) {
+function handleMouseover(n) {
   const selectedNavItem = n.$el
   moveMarkerOverElement(selectedNavItem)
 }
