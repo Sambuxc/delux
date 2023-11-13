@@ -1,5 +1,5 @@
 <template>
-  <RouterLink :to="to" class="nav-item-text">{{ text }}</RouterLink>
+  <RouterLink @click="$emit('clicked', this)" :to="to" class="nav-item-text">{{ text }}</RouterLink>
 </template>
 
 <script setup>

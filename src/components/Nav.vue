@@ -3,13 +3,13 @@
     <i class="marker"></i>
     <nav>
       <div class="menu-wrapper">
-        <nav-link-item to="/" text="Home"></nav-link-item>
-        <nav-link-item to="/our-cars" text="Our cars"></nav-link-item>
-        <nav-link-item to="/sell" text="Sell your car"></nav-link-item>
-        <nav-link-item to="/apply" text="Apply for finance"></nav-link-item>
-        <nav-link-item to="/about" text="About us"></nav-link-item>
-        <nav-link-item to="/blog" text="Blog"></nav-link-item>
-        <nav-link-item to="/contact" text="Contact"></nav-link-item>
+        <nav-link-item to="/" text="Home" @clicked="handleClick"></nav-link-item>
+        <nav-link-item to="/our-cars" text="Our cars" @clicked="handleClick"></nav-link-item>
+        <nav-link-item to="/sell" text="Sell your car" @clicked="handleClick"></nav-link-item>
+        <nav-link-item to="/apply" text="Apply for finance" @clicked="handleClick"></nav-link-item>
+        <nav-link-item to="/about" text="About us" @clicked="handleClick"></nav-link-item>
+        <nav-link-item to="/blog" text="Blog" @clicked="handleClick"></nav-link-item>
+        <nav-link-item to="/contact" text="Contact" @clicked="handleClick"></nav-link-item>
       </div>
 
       <RouterLink to="/contact" class="btn-blue md:hidden">Contact</RouterLink>
@@ -36,21 +36,36 @@
 import { onMounted } from 'vue'
 import NavLinkItem from '@/components/NavLinkItem.vue'
 
+let marker, root, navBar
+
 onMounted(() => {
-  const marker = document.querySelector('.marker')
-  const firstItemValues = document.querySelector('.nav-item-text:first-child').getBoundingClientRect()
-  /**
-   * Set the left position correctly
-   * */
-  // the left value of the nav item minus the marker's left value because when setting the style left pos to equal firstItemValues.left it adds to its original value.
-  // centerPos - markerWidth to positioning it in the center of nav item.
-  let centerPos = firstItemValues.width / 2
-  let markerWidth = 2.5
-  let leftPos = (firstItemValues.left - marker.getBoundingClientRect().left) + (centerPos - markerWidth)
-  marker.style.left = leftPos + 'px'
-
-
+  root = document.documentElement
+  marker = document.querySelector('.marker')
+  navBar = document.querySelector('nav')
+  const firstNavItem = document.querySelector('nav a:first-child')
+  setTimeout(() => {
+    // for now wait a lil bit to ensure other dom elements have loaded otherwise marker position is incorrect
+    // TODO: look into the lifecycle rendering of Nav component in relation to Header/logo component
+    moveMarkerOverElement(firstNavItem)
+  }, 100)
 })
+
+/**
+ * Set the left position correctly
+   the left value of the nav item minus the marker's left value because when setting the style left pos to equal firstItemValues.left it adds to its original value.
+   centerPos - markerWidth to positioning it in the center of nav item.
+* */
+function handleClick(n) {
+  const selectedNavItem = n.$el
+  moveMarkerOverElement(selectedNavItem)
+}
+
+function moveMarkerOverElement(elem) {
+  const selectedNavItemRect = elem.getBoundingClientRect()
+  let offset = selectedNavItemRect.width / 2 // ensures the marker is central to selected nav item
+  let newMarkerPos = ( selectedNavItemRect.left - navBar.getBoundingClientRect().left ) + offset
+  root.style.setProperty('--nav-marker-left', `${newMarkerPos}px`);
+}
 </script>
 
 <style lang="scss">
@@ -113,12 +128,12 @@ nav {
 .marker {
   position: absolute;
   top: 0;
-  left: 0;
+  left: var(--nav-marker-left);
   display: block;
   width: 5px;
   height: 24px;
   border-radius: 0px 0px 100px 100px;
   background-color: #7572ff;
-  transition: .5s left ease;
+  transition: 0.5s left ease;
 }
 </style>
