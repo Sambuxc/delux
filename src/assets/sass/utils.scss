@@ -11,7 +11,7 @@
 }
 
 .flex {
-  @include flex-base;
+  display: flex;
 }
 
 .order-1 {
@@ -26,8 +26,8 @@
   text-decoration: line-through;
 }
 
-.text-red {
-  color: $red;
+.primary-text {
+  color: $brand-primary;
 }
 
 @media (min-width: 768px) {

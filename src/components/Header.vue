@@ -1,56 +1,58 @@
 <script setup>
 import Nav from "./Nav.vue";
-import ControlsMenu from "./ControlsMenu.vue";
+import MenuIcon from "./icons/IconMenuAlt.vue"
+import AccountIcon from "./icons/IconAccount.vue"
 </script>
 
 <template>
   <header>
-    <div class="flex">
-      <img
-        alt="Vue logo"
-        class="logo"
-        src="@/assets/logo.svg"
-        width="125"
-        height="125" />
+    <div class="logo-wrapper">
+      <button class="menu-icon"><MenuIcon /></button>
 
-      <div class="items-center hidden md:flex md:mr-15">
-        <img src="@/assets/star-icon.svg" width="24" height="24" />
-        <span class="md:ml-5">0</span>
-      </div>
-
-      <div class="items-center hidden md:flex">
-        <img src="@/assets/time-icon.svg" timeh="24" height="24" />
-        <span class="md:ml-5">0</span>
-      </div>
+      <h1 class="primary-text">Logo</h1>
     </div>
 
     <Nav />
+
+    <div>
+      <button class="account-icon"><AccountIcon /></button>
+    </div>
   </header>
-  
-  <ControlsMenu />
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 header {
   @extend .flex;
-
   justify-content: space-between;
-  height: $header-height;
   width: 100%;
-  border-bottom: 1px solid $framework-borders;
-  padding: 10px 13px;
+  border-bottom: 1px solid $grey;
+  padding: 13px 21px;
+  align-items: center;
+}
 
-  @media (min-width: 768px) {
-    height: $header-height-tablet;
-  }
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
 
-  @media (min-width: 1024px) {
-    padding: 30px 32px;
-    height: $header-height-desktop;
-    display: flex;
-    align-items: center;
-  }
+.menu-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  height: 34px;
+  width: 34px;
+  border: 1px solid $grey;
+  outline: 1px solid $grey-light;
+  border-radius: 100%;
+}
+
+.account-icon {
+  padding: 0;
+  width: 25px;
+  height: 25px;
 }
 
 </style>

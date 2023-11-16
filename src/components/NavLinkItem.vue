@@ -1,5 +1,5 @@
 <template>
-  <RouterLink @mouseover="$emit('handleMouseover', this)" :to="to" class="nav-item-text">{{ text }}</RouterLink>
+  <RouterLink @mouseover="$emit('handleMouseover', this)" :to="to">{{ text }}</RouterLink>
 </template>
 
 <script setup>
@@ -26,28 +26,14 @@ a {
   align-items: center;
   justify-content: center;
 
-  /*font-family: Overpass;*/
+  font-family: Helvetica, sans-serif;
   line-height: 27px;
   font-size: 16px;
-  color: black;
+  font-weight: 600;
+  color: $white;
 }
 
 a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-// a.router-link-exact-active::before {
-//   content: '';
-//   position: absolute;
-//   top: 0;
-//   display: block;
-//   width: 5px;
-//   height: 24px;
-//   border-radius: 0px 0px 100px 100px;
-//   background-color: #7572ff;
-// }
-
-.nav-item-text {
-  color: grey;
+  border-bottom: 1px solid $brand-primary;
 }
 </style>

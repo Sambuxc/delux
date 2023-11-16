@@ -21,12 +21,16 @@ button {
 
   border: 0;
   border-radius: 16px;
-  background: $framework-light;
+  background: $grey-light;
   transition: 0.3s opacity ease;
 
   /*font-family: SF Pro Text;*/
   font-size: 14px;
   text-align: center;
+
+  // reset
+  appearance: none;
+  background: none;
 
   &:hover {
     opacity: 0.8;
@@ -35,11 +39,11 @@ button {
 }
 
 .btn-red {
-  background-color: rgba($red, 0.15);
+  background-color: rgba($brand-primary, 0.15);
   fill-opacity: 0.6;
-  color: $red;
+  color: $brand-primary;
 
   &:hover {
-    background-color: rgba($red, 0.3);
+    background-color: rgba($brand-primary, 0.3);
   }
 }

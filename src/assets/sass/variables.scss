@@ -1,35 +1,25 @@
 // colors
-$white: #ffffff;
-$framework-light: #f6f7fb;
-$framework-dark-1: #3f3a50;
-$framework-dark-2: #282338;
-$grey: #d1d6e0;
-$red: #f87b7b;
-$brand-primary: #7572ff;
+$white: #fff;
+$grey-light: rgba(0, 15, 30, 0.05);
+$grey: rgba(0, 15, 30, 0.1);
+$brand-primary: #db0a40;
+$brand-secondary: #002d39;
 
 // text colors
 $text-white: $white;
-$text-black: #000000;
+$text-black: #000f1e;
 $text-grey: #55595d;
 $text-disabled: #a2a9af;
 
-// borders colors
-$framework-borders: $grey;
-
-// heights
-$header-height: 50px;
-$header-height-tablet: 80px;
-$header-height-desktop: 100px;
-
-// Listings component
-$listings-gap-tablet: 15px;
-$tile-width-tablet: 327px;
+// widths & heights
+// fib nums: 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584
+$header-height: 55px;
 
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
   --nav-marker-left: 0px;
 
-  --vt-c-white: #ffffff;
+  --vt-c-white: #fff;
   --vt-c-white-soft: #f8f8f8;
   --vt-c-white-mute: #f2f2f2;
 
